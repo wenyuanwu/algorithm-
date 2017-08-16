@@ -5,11 +5,12 @@ end
 class Array
   def hash
     int = 0 
-    self.each_with_index do |el, idx|
+    arr = self.flatten
+    arr.each_with_index do |el, idx|
       if el.is_a? Integer
-        int += el*idx 
+        int += el*(idx+1) 
       else 
-        int += idx
+        int += (idx + 1111)
       end
     end 
     int.hash
@@ -21,7 +22,7 @@ class String
     int = 0 
     alphabet = ("a".."z").to_a
     self.split("").each_with_index do |char, idx|
-      int += idx **alphabet.index(char.downcase)
+      int += idx *alphabet.index(char.downcase)
     end 
     int.hash
   end
@@ -34,7 +35,7 @@ class Hash
     # 0
     int = 0 
     self.keys.each do |key|
-      int += key.to_s.hash * self[key].hash 
+      int += (key.to_s.hash + self[key].hash) 
     end 
     int.hash
   end
