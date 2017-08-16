@@ -6,7 +6,11 @@ class Array
   def hash
     int = 0 
     self.each_with_index do |el, idx|
-      int += el * idx 
+      if el.is_a? Integer
+        int += el*idx 
+      else 
+        int += idx
+      end
     end 
     int.hash
   end
