@@ -17,4 +17,11 @@ print(int_to_string(y))
 print(type(int_to_string(y)))
 
 def string_to_int(str):
-   	
+    num = 0
+    for i in range(len(str)):
+    	num = num * 10 + (ord(str[i]) - ord('0'))
+    return num 
+
+str_test = "12341243124"
+print(string_to_int(str_test))
+print(type(string_to_int(str_test)))
