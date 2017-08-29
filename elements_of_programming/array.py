@@ -60,10 +60,22 @@ def buy_and_sell_stock_once(A):
         if temp_profit > max:
             max = temp_profit
         start_idx = end_idx
-    return max     
+    return max
 
+def buy_and_sell_stock_once_2(A):
+    max_profit, current_min = 0.0, float('inf')
+    for price in A:
+        current_profit = price - current_min
+        max_profit = max(current_profit, max_profit)
+        current_min = min(price, current_min)     
+    return max_profit
+        
 # A = [310,315,275,295,260,270,290,230,255,250]
 # B = [100,300,250,600,900,10,300]
 # print(buy_and_sell_stock_once(A))
 # print(buy_and_sell_stock_once(B))
+# print(buy_and_sell_stock_once_2(A))
+
+# float('inf') - unbounded upper value for comparison 
+
 
