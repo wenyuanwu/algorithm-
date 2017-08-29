@@ -18,7 +18,7 @@ def partition(A, i):
     return A 
 
 # test case
-A = [0,1,2,0,2,1,1]
+# A = [0,1,2,0,2,1,1]
 # print (partition(A,3), "result1") 
 # [0,0,1,2,2,1,1]
 # print (partition(A,2), "result2") 
@@ -43,6 +43,27 @@ def same_key(A):
             A[pointer_2], A[pointer_3] = A[pointer_3], A[pointer_2]
     return A 
 
-A = [{1:"a"}, {1:"b"}, {2:"c"}, {1:"d"}, {3:"e"}, {2:"f"}, {2:"g"}, {1:"h"}]    
-print(same_key(A))
+# A = [{1:"a"}, {1:"b"},{3:"j"}, {2:"c"}, {1:"d"}, {3:"e"}, {2:"f"}, {2:"g"}, {1:"h"}, {3:"i"}]    
+# print(same_key(A))
+
+#buy and sell a stock once 
+
+def buy_and_sell_stock_once(A):
+    start_idx = 0 
+    max = 0 
+    while start_idx < len(A) - 1:
+        end_idx = start_idx + 1
+        print("end_idx", end_idx)
+        while end_idx < len(A) and A[end_idx] > A[end_idx - 1]:
+            end_idx += 1 
+        temp_profit = A[end_idx - 1] - A[start_idx]
+        if temp_profit > max:
+            max = temp_profit
+        start_idx = end_idx
+    return max     
+
+# A = [310,315,275,295,260,270,290,230,255,250]
+# B = [100,300,250,600,900,10,300]
+# print(buy_and_sell_stock_once(A))
+# print(buy_and_sell_stock_once(B))
 
