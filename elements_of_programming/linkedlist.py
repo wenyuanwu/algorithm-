@@ -1,6 +1,6 @@
 # Implement the node 
 class Node:
-    def __init__(self, data):
+    def __init__(self, data = None):
         self.data = data
         self.next = None
 
@@ -63,13 +63,39 @@ class Linkedlist:
             self.head = current.getNext()    
         	
 
-nodelist = Linkedlist()
-print(nodelist.isempty())
-print(nodelist.size())
-nodelist.insert(3)
-nodelist.insert(5)
-print(nodelist.size())
-print(nodelist.search(3))
-print(nodelist.search(5))
-nodelist.remove(0)
-print(nodelist.size())
+# nodelist = Linkedlist()
+# print(nodelist.isempty())
+# print(nodelist.size())
+# nodelist.insert(3)
+# nodelist.insert(5)
+# print(nodelist.size())
+# print(nodelist.search(3))
+# print(nodelist.search(5))
+# nodelist.remove(0)
+# print(nodelist.size())
+
+# 7.1 merge two sorted lists
+def merge_two_sorted_list(L1,L2):
+    dummy_node = tail = Node()
+    pointer1 = L1.head
+    pointer2 = L2.head
+    while pointer1 and pointer2:
+        if pointer1.getData() < pointer2.getData():
+            tail.next, pointer1 = pointer1, pointer1.getNext()
+        else:
+            tail.next, pointer2 = pointer2, pointer2.getNext()
+        tail = tail.next
+    tail.next = pointer1 or pointer2
+
+    return dummy_node.next
+
+# L1 = Linkedlist()
+# L1.insert(5)
+# L1.insert(3)
+# L1.insert(1)
+# L2 = Linkedlist()
+# L2.insert(4)
+# L2.insert(2)
+# L = merge_two_sorted_list(L1,L2)
+# print(L.getData())
+
