@@ -14,7 +14,7 @@ function originalFilter(array){
 	}
 
 	if(filtered.length !== 1){
-		originalFilter(filtered.reverse());
+		return originalFilter(filtered.reverse());
 	}
 }
 
