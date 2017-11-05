@@ -1,9 +1,10 @@
 def moveZeros(nums):
 	if not nums:
 		return []
+
 	count = 0
 	last_idx = 0 
-	for i in range(len(nums)):
+	for i in range(len(nums)):		
 		if nums[i] == 0:
 			count += 1
 			continue
